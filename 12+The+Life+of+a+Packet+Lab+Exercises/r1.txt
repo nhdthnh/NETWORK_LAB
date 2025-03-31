@@ -1,0 +1,17 @@
+enable
+!
+configure terminal
+!
+hostname R1
+!
+!
+interface FastEthernet0/0
+ ip address 10.10.10.1 255.255.255.0
+ no shutdown
+!
+ip route 10.10.20.0 255.255.255.0 10.10.10.2
+!
+line con 0
+ exec-timeout 30 0
+!
+end

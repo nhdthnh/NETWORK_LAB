@@ -1,0 +1,21 @@
+hostname R2
+!
+interface FastEthernet0/0
+ ip address 10.10.10.2 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ ip address 10.10.20.2 255.255.255.0
+ shutdown
+ duplex auto
+ speed auto
+ no shutdown
+!
+ip domain lookup
+ip name-server 10.10.10.10
+!
+line con 0
+ exec-timeout 30 0
+!
+end
