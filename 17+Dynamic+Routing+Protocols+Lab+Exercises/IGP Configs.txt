@@ -1,0 +1,36 @@
+config t
+router rip
+version 2
+network 10.0.0.0
+no auto-summary
+
+######################################################
+config t
+router isis
+  net 49.0001.0000.0000.0005.00
+!
+interface f0/0
+ ip router isis
+!
+interface f0/1
+ ip router isis
+!
+interface f1/0
+ ip router isis
+!
+interface f1/1
+ ip router isis
+
+#####################################################
+
+config t
+router ospf 1
+network 10.0.0.0 0.255.255.255 area 0
+
+####################################################
+
+config t
+router eigrp 100
+no auto-summary
+network 10.0.0.0 0.255.255.255
+
